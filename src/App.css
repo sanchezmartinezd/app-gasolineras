@@ -1,0 +1,110 @@
+.page {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 16px;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+}
+
+.status.error {
+  border-color: #ffb3b3;
+  background: #fff0f0;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.station {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.station-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.station-row {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.hint {
+  color: #555;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.highlights {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.highlight {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.highlight-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
