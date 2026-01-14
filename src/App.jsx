@@ -465,8 +465,13 @@ export default function App() {
     setLoadingText("Descargando datos…");
 
     try {
-      const url =
+      const DEV_URL =
         "/api-carburantes/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/";
+
+      const PROD_URL =
+        "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/";
+
+      const url = import.meta.env.DEV ? DEV_URL : PROD_URL;
 
       const res = await fetch(url, { headers: { Accept: "application/json" } });
 
