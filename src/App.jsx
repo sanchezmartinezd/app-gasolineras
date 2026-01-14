@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import "./App.css";
 
 // Opciones de carburante
 const FUEL_OPTIONS = [
@@ -157,15 +156,15 @@ function SearchForm({
       <h2>Entrada</h2>
 
       <div className="row">
-        <button className="btn" onClick={onDetectLocation} disabled={loading}>
+        <button className="btn secondary" onClick={onDetectLocation} disabled={loading}>
           Usar mi ubicación
         </button>
 
-        <button className="btn" onClick={onSearch} disabled={loading}>
+        <button className="btn primary" onClick={onSearch} disabled={loading}>
           Buscar gasolineras cercanas a mí
         </button>
 
-        <button className="btn" onClick={onClearFilters} disabled={loading}>
+        <button className="btn danger" onClick={onClearFilters} disabled={loading}>
           Limpiar filtros
         </button>
 

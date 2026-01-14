@@ -1,81 +1,69 @@
+/* ===== Tema básico (colores, tamaños) ===== */
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+
+  --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  --shadow-soft: 0 6px 18px rgba(17, 24, 39, 0.06);
+
+  --radius: 16px;
+}
+
+/* Fondo general (esto mejora muchísimo el aspecto) */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Contenedor principal */
 .page {
-  max-width: 900px;
-  margin: 30px auto;
+  max-width: 980px;
+  margin: 28px auto;
   padding: 0 16px;
-  font-family: system-ui, Arial, sans-serif;
 }
 
+/* Título bonito */
+.page h1 {
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 6px 0 18px;
+}
+
+/* Tarjetas */
 .card {
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
   margin: 16px 0;
+  box-shadow: var(--shadow-soft);
 }
 
+/* Subtítulos */
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+/* Layout de formulario */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 12px 0;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 14px;
-}
-
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.btn {
-  padding: 10px 14px;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.status {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  background: #f7f7f7;
-}
-
-.status.error {
-  border-color: #ffb3b3;
-  background: #fff0f0;
-}
-
-.list {
-  display: grid;
-  gap: 10px;
-}
-
-.station {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.station-title {
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.station-row {
-  font-size: 14px;
-  margin: 2px 0;
-}
-
-.hint {
-  color: #555;
-  font-size: 14px;
+  gap: 14px;
+  margin: 14px 0;
 }
 
 .row {
@@ -85,26 +73,164 @@ input {
   margin-bottom: 12px;
 }
 
-select {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+.row .btn.primary {
+  flex: 1;
+  min-width: 240px;
 }
 
+/* Labels */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Inputs / Select */
+input,
+select {
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+/* Efecto al hacer click (foco) */
+input:focus,
+select:focus {
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Botones: base */
+.btn {
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Botón principal (azul) */
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+.btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+/* Botón secundario (gris “elegante”) */
+.btn.secondary {
+  background: #f3f4f6;
+  border-color: var(--border);
+}
+.btn.secondary:hover {
+  background: #eef2f7;
+}
+
+/* Botón peligro (rojo) */
+.btn.danger {
+  background: #fff;
+  border-color: rgba(239, 68, 68, 0.35);
+  color: var(--danger);
+}
+.btn.danger:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.06);
+}
+
+/* Mensajes */
+.status {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.status.error {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.06);
+}
+
+/* Textos secundarios */
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Lista y tarjetas de estación */
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.station {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.station-title {
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.station-row {
+  font-size: 14px;
+  margin: 3px 0;
+  color: #111827;
+}
+
+/* Destacados */
 .highlights {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   grid-template-columns: 1fr 1fr;
 }
 
 .highlight {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
 }
 
 .highlight-title {
-  font-weight: 700;
-  margin-bottom: 6px;
+  font-weight: 800;
+  margin-bottom: 8px;
 }
 
+/* Responsive: en pantallas pequeñas, 1 columna */
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+  .page h1 {
+    font-size: 34px;
+  }
+}
