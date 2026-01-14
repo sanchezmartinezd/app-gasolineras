@@ -310,29 +310,48 @@ function Highlights({ nearest, cheapest }) {
 }
 
 function StationCard({ station }) {
+    station.openAtArrival === true
+      ? "Sí"
+      : station.openAtArrival === false
+      ? "No"
+      : "Desconocido";
+
   return (
     <div className="station">
-      <div className="station-title">{station.name}</div>
-      <div className="station-row">Dirección: {station.address}</div>
-      <div className="station-row">Precio: {station.price} €/L</div>
-      <div className="station-row">Distancia: {station.distanceKm} km</div>
-      <div className="station-row">Horario: {station.schedule}</div>
-            <div className="station-row">
-        Llegada estimada: {station.arrivalTime} (+{station.etaMinutes} min)
+      <div className="station-top">
+        <div className="station-title">{station.name}</div>
+        <div className="price-badge">{station.price} €/L</div>
       </div>
 
-      <div className="station-row">
-        Abierta al llegar:{" "}
-        {station.openAtArrival === true
-          ? "Sí"
-          : station.openAtArrival === false
-          ? "No"
-          : "Desconocido"}
-      </div>
+      <div className="station-address">{station.address}</div>
 
+      <div className="chips">
+        <span className="chip">📍 {station.distanceKm} km</span>
+        <span className="chip">🕒 {station.schedule}</span>
+        <span className="chip">
+          🚗 Llegada: {station.arrivalTime} (+{station.etaMinutes} min)
+        </span>
+
+        <span
+          className={
+            station.openAtArrival === true
+              ? "chip chip-ok"
+              : station.openAtArrival === false
+              ? "chip chip-bad"
+              : "chip"
+          }
+        >
+          {station.openAtArrival === true
+            ? "✅ Abierta al llegar"
+            : station.openAtArrival === false
+            ? "⛔ Cerrada al llegar"
+            : "❓ Abierta al llegar: desconocido"}
+        </span>
+      </div>
     </div>
   );
 }
+
 
 function ResultsList({ stations }) {
   return (
@@ -586,7 +605,16 @@ export default function App() {
 
   return (
     <div className="page">
-      <h1>Buscador de gasolineras</h1>
+         <header className="header">
+            <h1 className="title">
+              Buscador de gasolineras
+            </h1>
+
+            <p className="subtitle">
+              Encuentra la más cercana y la más barata en tu radio.
+            </p>
+          </header>
+
 
       <SearchForm
         coords={coords}
